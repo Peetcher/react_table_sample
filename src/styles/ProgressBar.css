@@ -1,0 +1,28 @@
+.progress-container {
+  text-align: center;
+}
+
+.progress-container p{
+  font-size: 1.2vw;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+
+progress {
+  width: 35.5vw;
+  height: 2.5vh;
+  -webkit-appearance: none;  /* Убирает дефолтное оформление браузера */
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #fdad13;  /* Цвет фона прогресс бара */
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+progress::-webkit-progress-value {
+  background-color: #e1e1e2;  /* Цвет заполненной части ползунка */
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
