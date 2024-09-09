@@ -150,7 +150,7 @@ const InputForm = () => {
 
         <div className="ProgressBar-container">
 
-          {{countdown > 0 &&
+          {countdown > 0 &&
               (
               <ProgressBar countdown={countdown} progress={progress}/>
           )}
