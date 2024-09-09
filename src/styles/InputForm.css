@@ -20,13 +20,13 @@ html, body {
   grid-template-columns: 18.75% 12.5% 50.6% auto;
 }
 
-/* Вторая строка - 3 колонки */
+
 .row-1 {
   display: grid;
   grid-template-columns: 18.75% 52.5% 28.75%;
 }
 
-/* Третья строка - снова 4 колонки */
+
 .row-2 {
   display: grid;
   grid-template-columns: 18.75% 28.1% 9.3% 15.1%;
