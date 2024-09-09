@@ -15,7 +15,7 @@ const compareTables = (table1, table2) => {
   for (let i = 0; i < table1.length; i++) {
     for (let j = 0; j < table1[i].length; j++) {
       const cell1 = table1[i][j];
-      const cell2 = table2[i] ? table2[i][j] : undefined; // Проверяем, что элемент существует в обоих массивах
+      const cell2 = table2[i] ? table2[i][j] : undefined; 
 
       if (cell2 && cell1.value !== cell2.value) {
         differences.push({
@@ -43,7 +43,7 @@ const InputForm = () => {
     const type_of_data = tableData[rowIndex][colIndex]["type"];
 
     if (typeof type_of_data === 'undefined') {
-      return {isValid: true, newValue: value}; // Возвращаем как есть
+      return {isValid: true, newValue: value}; 
     }
 
     let isValid = false;
@@ -56,13 +56,13 @@ const InputForm = () => {
         isValid = /^\d*\.?\d*$/.test(value);
         break;
       case 'Interest':
-        let numberValue = value.split('%')[0].trim(); // Извлекаем число перед '%'
-        value = numberValue + '%'; // Присоединяем обратно '%' к числу
-        isValid = /^\d*\.?\d*$/.test(numberValue); // Проверяем, что это число
+        let numberValue = value.split('%')[0].trim(); 
+        value = numberValue + '%'; 
+        isValid = /^\d*\.?\d*$/.test(numberValue); 
         break;
     }
 
-    return {isValid, newValue: value}; // Возвращаем результат валидации и изменённое значение
+    return {isValid, newValue: value}; 
   };
 
   // Handle change in grid cell
@@ -85,15 +85,7 @@ const InputForm = () => {
 
   useEffect(() => {
     progressRef.current = setTimeout(() => {
-      //const cellId = newTableData[rowIndex][colIndex].id;
       setEditedData(prevEditedData => {
-        // const updatedEditedData = {...prevEditedData};
-        //
-        // if (validatedValue !== initialTableData[rowIndex][colIndex].value) {
-        //   updatedEditedData[cellId] = validatedValue;
-        // } else {
-        //   delete updatedEditedData[cellId];
-        // }
         return compareTables(tableData, prevTableData);
       });
     }, 5000);
@@ -102,13 +94,10 @@ const InputForm = () => {
 
   useEffect(() => {
     if (Object.keys(editedData).length > 0) {
-      // clearTimeout(progressRef.current);
       setProgress(0);
       setCountdown(0);
-
-      // progressRef.current = setTimeout(() => {
       startProgressBar();
-      // }, 5000);
+
     }
 
   }, [editedData]);
@@ -130,7 +119,6 @@ const InputForm = () => {
 
   };
 
-  // Send edited data to the console
   const sendEditedData = () => {
     console.log('Edited Data:', editedData);
     setPrevTableData(tableData);
@@ -162,7 +150,7 @@ const InputForm = () => {
 
         <div className="ProgressBar-container">
 
-          {/*{countdown > 0 &&*/
+          {{countdown > 0 &&
               (
               <ProgressBar countdown={countdown} progress={progress}/>
           )}
